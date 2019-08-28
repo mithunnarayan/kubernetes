@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: be-server
+spec:
+  selector:
+    matchLabels:
+      app: server
+      tier: backend
+      track: stable
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: server
+        tier: backend
+        track: stable
+    spec:
+      volumes:
+        - name: pv-storage-tw
+          persistentVolumeClaim:
+            claimName: pv-claim-tw
+      containers:
+        - name: be-server
+          image: "mithun217/webapp:latest"
+          imagePullPolicy: Never
+          ports:
+            - name: http
+              containerPort: 8080
+          volumeMounts:
+            - mountPath: "/usr/local/tomcat/data/"
+              name: pv-storage-tw
