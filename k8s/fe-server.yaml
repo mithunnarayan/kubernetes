@@ -32,8 +32,8 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: "fe-server2:latest"
-        imagePullPolicy: Never
+        image: "asia.gcr.io/kube-pro-249008/fe-server-io"
+#        imagePullPolicy: Never
         lifecycle:
           preStop:
             exec:

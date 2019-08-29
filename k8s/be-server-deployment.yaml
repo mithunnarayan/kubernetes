@@ -16,17 +16,17 @@ spec:
         tier: backend
         track: stable
     spec:
-      volumes:
-        - name: pv-storage-tw
-          persistentVolumeClaim:
-            claimName: pv-claim-tw
+#      volumes:
+#        - name: pv-storage-tw
+#          persistentVolumeClaim:
+#            claimName: pv-claim-tw
       containers:
         - name: be-server
-          image: "mithun217/webapp:latest"
-          imagePullPolicy: Never
+          image: "asia.gcr.io/kube-pro-249008/be-server-io"
+#          imagePullPolicy: Never
           ports:
             - name: http
               containerPort: 8080
-          volumeMounts:
-            - mountPath: "/usr/local/tomcat/data/"
-              name: pv-storage-tw
+#          volumeMounts:
+#            - mountPath: "/usr/local/tomcat/data/"
+#              name: pv-storage-tw
