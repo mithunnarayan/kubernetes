@@ -38,3 +38,4 @@ spec:
           preStop:
             exec:
               command: ["/usr/sbin/nginx","-s","quit"]
+##
